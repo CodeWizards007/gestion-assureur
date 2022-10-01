@@ -1,17 +1,18 @@
 version: '3'
 services:
   my-app:
-    image: nodeapp1.azurecr.io/my-app:1.0
-    built: .
-      ports:
+    container_name: "dossier-client"
+    image: nodeapp1.azurecr.io/microservice:1.0.1
+    build: .
+    ports:
         - 3000:5000
   mongodb:
     image: mongo:latest
     ports:
       - 27017:27017
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=password
+      - DB_USERNAME=admin
+      - DB_PASSWORD=password
     volumes:
       - mongo-data:/data/db
   mongo-express:

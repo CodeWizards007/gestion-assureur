@@ -15,7 +15,9 @@ dotenv.config();
 //await connectDB();
 app.use(express.json()); // to accept json data
 
-
+connectDB().then(()=>{
+    logger.info("mongoDB connected ")
+})
 // cors config
 const allowedOrigins = ["http://localhost:3000", "http://192.168.10.62:3000"];
 app.use(
