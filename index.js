@@ -12,7 +12,7 @@ app.use(errorLogger);
 app.use(errorResponder);
 app.use(invalidPathHandler);
 dotenv.config();
-//await connectDB();
+connectDB();
 app.use(express.json()); // to accept json data
 
 connectDB().then(()=>{
