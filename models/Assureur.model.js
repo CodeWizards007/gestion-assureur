@@ -12,10 +12,10 @@ const AssureurSchema = mongoose.Schema({
         unique: true,
     },
     téléphone: {
-        type:number
+        type:Number
     },
     salaire: {
-        type: number,
+        type: Number,
     },
 },{timestamps:true});
 const Assureur = mongoose.model("Assureur", AssureurSchema);

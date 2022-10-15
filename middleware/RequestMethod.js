@@ -1,6 +1,6 @@
 const logger = require("../config/Logger");
 
-export default (req, res, next) => {
+const RequestMethod =  (req, res, next) => {
     // NOTE: Exclude TRACE and TRACK methods to avoid XST attacks.
     const allowedMethods = [
         "OPTIONS",
@@ -19,3 +19,5 @@ export default (req, res, next) => {
     }
     next();
 };
+
+module.exports = RequestMethod;
