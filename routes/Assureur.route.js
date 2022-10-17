@@ -7,6 +7,6 @@ const router = express.Router();
 router.post("/create", requestMethod,create);
 router.get("/findAll", requestMethod,findAll);
 router.get("/findOne/:id", requestMethod,findOne);
-router.put("/update/:id", requestMethod,update);
+router.patch("/update/:id", requestMethod,update);
 
 module.exports = router;

@@ -7,7 +7,7 @@ const AssureurSchema = mongoose.Schema({
         required: true,
     },
     email: {
-        type: Date,
+        type: String,
         required: true,
         unique: true,
     },

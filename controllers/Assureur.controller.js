@@ -35,9 +35,8 @@ exports.update = (req, res) => {
         });
     }
 
-    Assureur.updateById(
+    Assureur.findByIdAndUpdate(
         req.params.id,
-        new Assureur(req.body),
         (err, data) => {
             if (err) {
                 if (err.kind === "not_found") {
@@ -73,7 +72,7 @@ exports.delete = (req, res) => {
 
 //get all assureurs
 exports.findAll = (req, res) => {
-    Assureur.getAll((err, data) => {
+    Assureur.find((err, data) => {
         if (err)
             res.status(500).send({
                 message:
