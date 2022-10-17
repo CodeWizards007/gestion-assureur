@@ -1,3 +1,4 @@
+const eurekaHelper = require('./config/Eureka.config');
 const express = require("express");
 var cors = require("cors");
 const dotenv = require("dotenv");
@@ -50,3 +51,4 @@ app.use("/api",AssureurRoute)
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, logger.info(`Server started on Port ${PORT}`));
+eurekaHelper.registerWithEureka('assureur-service', PORT);
