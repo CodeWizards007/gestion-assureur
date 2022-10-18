@@ -11,6 +11,10 @@ const AssureurSchema = mongoose.Schema({
         required: true,
         unique: true,
     },
+    password:{
+        type:String,
+        required:true
+    },
     téléphone: {
         type:Number
     },

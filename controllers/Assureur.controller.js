@@ -97,3 +97,7 @@ exports.findOne = (req, res) => {
         } else res.send(data);
     });
 }
+
+exports.auth = (req,res)=>{
+
+}

@@ -8,5 +8,6 @@ router.post("/create", requestMethod,create);
 router.get("/findAll", requestMethod,findAll);
 router.get("/findOne/:id", requestMethod,findOne);
 router.patch("/update/:id", requestMethod,update);
+router.post("/auth");
 
 module.exports = router;
