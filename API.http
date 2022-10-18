@@ -2,13 +2,14 @@ GET http://localhost:5000/findAll
 Accept: application/json
 
 ###
-POST http://localhost:5000/create
+POST http://localhost:5000/api/create
 Content-Type: application/json
 
 {
   "name": "John Doe",
-  "email": "foo@example.com",
-  "téléphone": 1234567890
+  "password": "123456",
+  "email": "foo@example.com"
+
 }
 
 

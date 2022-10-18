@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const logger = require('./Logger')
 const connectDB = async () => {
     try {
-        const uri = process.env.NODE_ENV==='development' ? `mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}`: `mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_CONTAINER_NAME}`;
+        const uri = process.env.NODE_ENV==='development' ? `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}` : `mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_CONTAINER_NAME}`;
         const conn=await mongoose.connect(uri, {
             useUnifiedTopology: true,
             useNewUrlParser: true,

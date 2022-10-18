@@ -7,7 +7,6 @@ const connectDB = require("./config/db");
 const AssureurRoute = require("./routes/Assureur.route");
 const { errorLogger,errorResponder, invalidPathHandler } = require("./middleware/ErrorHandler");
 // Error Handling middlewares
-
 const app = express(); // main thing
 app.use(errorLogger);
 app.use(errorResponder);
@@ -51,4 +50,4 @@ app.use("/api",AssureurRoute)
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, logger.info(`Server started on Port ${PORT}`));
-eurekaHelper.registerWithEureka('assureur-service', PORT);
+//eurekaHelper.registerWithEureka('assureur-service', PORT);

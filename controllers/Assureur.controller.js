@@ -1,20 +1,25 @@
 const Assureur = require("../models/Assureur.model");
+const bcrypt = require("bcrypt");
+const { loginRequest,AuthRequest } = require("../utils/validation.utils");
+const generateToken = require("../utils/generateToken.utils");
 
 // crud
-exports.create = (req, res) => {
+exports.create = async (req, res) => {
     // Validate request
     if (!req.body) {
         res.status(400).send({
             message: "Content can not be empty!"
         });
     }
-
+    const salt = bcrypt.genSaltSync(10, "a");
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
     // Create a Assureur
     const assureur = new Assureur({
         name: req.body.name,
         email: req.body.email,
         salaire: req.body.salaire,
         location: req.body.location,
+        password: hashedPassword,
     });
 
     // Save Assureur in the database
@@ -54,7 +59,7 @@ exports.update = (req, res) => {
 }
 
 //delete  assureur
-exports.delete = (req, res) => {
+exports.deleteById = (req, res) => {
     Assureur.remove(req.params.id, (err, data) => {
         if (err) {
             if (err.kind === "not_found") {
@@ -98,6 +103,22 @@ exports.findOne = (req, res) => {
     });
 }
 
-exports.auth = (req,res)=>{
+exports.auth = async (req,res)=>{
+    const { email, password } = req.body;
 
+    //validate request
+    const { error }  = loginRequest.validate(req.body);
+    if(error) {
+        return res.status(400).json(error.details[0].message);
+    }
+    const user = await Assureur.findOne({ email });
+    if (!user) return res.status(400).json("Invalid email and password!");
+    //check if password match
+    const isValid = await bcrypt.compare(password, user.password);
+    if (!isValid) return res.status(400).json("Invalid email and password!");
+
+    return res.status(200).json({
+            "access_token" : generateToken(user._id),
+            "role":"assureur"
+    });
 }
