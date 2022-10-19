@@ -9,6 +9,6 @@ router.get("/findAll", requestMethod,findAll);
 router.get("/findOne/:id", requestMethod,findOne);
 router.patch("/update/:id", requestMethod,update);
 router.post("/auth", requestMethod,auth);
-router.post("/delete/:id", requestMethod,deleteById);
+router.delete("/delete/:id", requestMethod,deleteById);
 
 module.exports = router;

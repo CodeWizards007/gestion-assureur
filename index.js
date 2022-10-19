@@ -44,8 +44,9 @@ app.get("/", (req, res) => {
 
 
 app.use(express.static("public"));
-app.use("/api",AssureurRoute)
-
+app.use("/api/assureur",AssureurRoute)
+app.use("/api/devis",require("./routes/Devis.route"));
+app.use("/api/constat",require("./routes/Constats.route"));
 
 const PORT = process.env.PORT || 5000;
 
