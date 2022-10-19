@@ -1,5 +1,4 @@
 const Constat= require('../models/Constats.model');
-const mongoose = require("mongoose");
 
 // Create and Save a new Constat
 exports.create = (req, res) => {
@@ -22,7 +21,7 @@ exports.create = (req, res) => {
         clientId:req.body.clientId,
         devis:[req.body.devis],
         agence:req.body.agence,
-        images:[req.body.images],
+        images:[req.files[0].filename],
     });
 
     // Save Constat in the database
