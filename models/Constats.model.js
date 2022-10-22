@@ -25,7 +25,7 @@ fautif:{
          }
  },
  rapport:{   // dedié au expert
-  type:String,
+  type:Number,
   },
     montantRembourse:{ // dedié au expert
     type:Number,
