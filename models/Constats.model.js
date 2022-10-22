@@ -14,11 +14,11 @@ fautif:{
  emplacement:{
         gouvernement:{
             type:String,
-            required:true
+            //required:true
         },
         cite:{
           type:String,
-            required:true
+           // required:true
         },
          rue:{
             type:String,

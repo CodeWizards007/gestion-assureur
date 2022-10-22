@@ -21,9 +21,12 @@ exports.create = (req, res) => {
         clientId:req.body.clientId,
         devis:[req.body.devis],
         agence:req.body.agence,
-        images:[req.files[0].filename],
+       // images:[req.files[0].filename],
     });
-
+    req.files.map((file)=>{
+      constat.images.push(file.filename)
+    })
+    console.log(constat)
     // Save Constat in the database
     Constat.create(constat, (err, data) => {
         if (err)
@@ -51,7 +54,7 @@ exports.findAll = (req, res) => {
 
 //delete  constat
 exports.deleteConstat = (req, res) => {
-    Constat.deleteOne(req.params.id,(err, data) => {
+    Constat.deleteOne(req.params.id,(err) => {
         if (err)
             res.status(500).send({
                 message:
