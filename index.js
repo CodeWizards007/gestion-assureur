@@ -18,7 +18,7 @@ connectDB().then(()=>{
     logger.info("mongoDB connected ")
 })
 // cors config
-const allowedOrigins = ["http://localhost:3000", "http://192.168.10.62:3000"];
+const allowedOrigins = ["http://localhost:3000", "http://localhost:4200", "http://localhost:8080"];
 app.use(
     cors({
         origin: function (origin, callback) {
