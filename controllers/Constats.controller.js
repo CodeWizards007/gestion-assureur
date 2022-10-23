@@ -41,7 +41,7 @@ exports.create = (req, res) => {
 
 // Retrieve all Constats from the database.
 exports.findAll = (req, res) => {
-    Constat.getAll((err, data) => {
+    Constat.find((err, data) => {
         if (err)
             res.status(500).send({
                 message:
