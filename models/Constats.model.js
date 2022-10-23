@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 
 
 const ConstatsSchema = mongoose.Schema({
+titre:{
+        type:String,
+},
 fautif:{
     type:String,
     Enum:["fautif","non-fautif"],
@@ -35,9 +38,7 @@ fautif:{
     enum:["En attente","Remboursé","Non remboursé"],
     default:"En attente"
     },
-    agence:{
-    type:String,
-    },
+
     images:[
         {
             type:String,

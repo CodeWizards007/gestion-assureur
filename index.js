@@ -39,7 +39,7 @@ app.use(
 );
 app.use(express.json({ extended: false }));
 app.get("/", (req, res) => {
-    res.send("API is running...");
+    res.send("Node js API  is running...");
 });
 
 
