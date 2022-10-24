@@ -11,7 +11,7 @@ services:
       - DB_USERNAME=admin
       - DB_PASSWORD=password
       - DB_CONTAINER_NAME=mongodb
-      - EUREKA_URL=Eureka
+      - EUREKA_URL=http://eureka/eureka/
 
   mongodb:
     image: mongo:latest
