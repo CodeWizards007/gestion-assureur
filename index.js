@@ -51,4 +51,4 @@ app.use("/api/constat",require("./routes/Constats.route"));
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, logger.info(`Server started on Port ${PORT}`));
-//eurekaHelper.registerWithEureka('assureur-service', PORT);
+eurekaHelper.registerWithEureka('assureur-service', PORT);

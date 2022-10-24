@@ -73,7 +73,7 @@ exports.update = (req, res) => {
         });
     }
     Constat.updateOne(
-        {_id:req.params.id},
+        {_id:req.body._id},
         req.body,
         (err, data) => {
             if (err) {
@@ -89,4 +89,18 @@ exports.update = (req, res) => {
             } else res.send(data);
         }
     );
+}
+
+exports.findbyexpert = async (req, res) => {
+    const constat = await Constat.find({expertId:req.params.id});
+
+    res.send(constat);
+
+}
+
+exports.find = async (req, res) => {
+    const constat = await Constat.findById(req.params.id);
+
+    res.send(constat);
+
 }

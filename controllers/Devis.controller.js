@@ -101,3 +101,31 @@ exports.deleteDevis = (req, res) => {
         } else res.send({ message: `Devis was deleted successfully!` });
     });
 }
+
+exports.updateDevisExpert = (req, res) => {
+    // Validate Request
+    if (!req.body) {
+        res.status(400).send({
+            message: "Content can not be empty!"
+        });
+    }
+
+    Devis.updateOne(
+        {_id:req.params.id},
+        req.body,
+        (err, data) => {
+            if (err) {
+                console.log(err);
+                if (err.kind === "not_found") {
+                    res.status(404).send({
+                        message: `Not found Devis with id ${req.params.id}.`
+                    });
+                } else {
+                    res.status(500).send({
+                        message: "Error updating Devis with id " + req.params.id
+                    });
+                }
+            } else res.send(data);
+        }
+    );
+}
